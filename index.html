@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karyana — Bikin Ucapan, Jadi Karya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo">Karyana<span class="logo-dot">.</span></div>
+  <p class="tagline">bikin ucapan, jadi karya</p>
+</header>
+
+<!-- VIEW 1: GALLERY -->
+<main id="view-gallery" class="view active">
+  <section class="hero">
+    <h1>Ucapan digital yang <em>kamu</em> yang buat.</h1>
+    <p>Pilih template, isi ceritanya, download filenya. Deploy sendiri ke Vercel atau GitHub Pages — jadi kado digital yang beneran punya kamu.</p>
+  </section>
+
+  <section class="gallery">
+    <article class="card" data-template="hbd">
+      <div class="card-preview">
+        <img src="assets/capibaya-party.png" alt="Capibaya merayakan ulang tahun">
+      </div>
+      <div class="card-body">
+        <h3>Ucapan Ulang Tahun</h3>
+        <p>Amplop dibuka, Capibaya nyapa, lalu pesanmu terbaca satu per satu.</p>
+        <button class="btn-primary" data-open="hbd">Pakai template ini</button>
+      </div>
+    </article>
+
+    <article class="card card-soon">
+      <div class="card-preview card-preview-soon">✦</div>
+      <div class="card-body">
+        <h3>Anniversary</h3>
+        <p>Segera hadir.</p>
+      </div>
+    </article>
+
+    <article class="card card-soon">
+      <div class="card-preview card-preview-soon">✦</div>
+      <div class="card-body">
+        <h3>Wisuda</h3>
+        <p>Segera hadir.</p>
+      </div>
+    </article>
+  </section>
+</main>
+
+<!-- VIEW 2: FORM + PREVIEW -->
+<main id="view-editor" class="view">
+  <button class="btn-back" id="btn-back">← kembali pilih template</button>
+
+  <div class="editor-grid">
+    <section class="form-panel">
+      <h2>Isi ceritanya</h2>
+
+      <label class="field">
+        <span>Nama yang ulang tahun</span>
+        <input type="text" id="input-nama" placeholder="Misal: Sasha" maxlength="40">
+      </label>
+
+      <label class="field">
+        <span>Tanggal ulang tahun</span>
+        <input type="date" id="input-tanggal">
+      </label>
+
+      <label class="field">
+        <span>Pesan buat dia</span>
+        <textarea id="input-pesan" rows="6" maxlength="600" placeholder="Tulis pesan hangat kamu di sini..."></textarea>
+      </label>
+
+      <button class="btn-primary btn-generate" id="btn-generate">
+        Download file (.zip)
+      </button>
+      <p class="hint">File hasil download siap di-push ke GitHub lalu deploy ke Vercel.</p>
+    </section>
+
+    <section class="preview-panel">
+      <div class="phone-frame">
+        <iframe id="preview-frame" title="Live preview"></iframe>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

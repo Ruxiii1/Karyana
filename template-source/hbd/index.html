@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Ulang Tahun, {{NAMA}}!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sky">
+  <span class="star s1">✦</span><span class="star s2">✧</span><span class="star s3">✦</span>
+  <span class="star s4">✧</span><span class="star s5">✦</span><span class="star s6">✧</span>
+</div>
+
+<main id="stage" class="stage">
+
+  <!-- SCENE 1: Envelope -->
+  <section class="scene scene-envelope active" data-scene="1">
+    <div class="envelope" id="envelope">
+      <div class="envelope-back"></div>
+      <div class="envelope-letter">
+        <p class="letter-peek">Untuk {{NAMA}} 💌</p>
+      </div>
+      <div class="envelope-flap"></div>
+    </div>
+    <p class="tap-hint">ketuk amplopnya ✦</p>
+  </section>
+
+  <!-- SCENE 2: Greeting -->
+  <section class="scene scene-greeting" data-scene="2">
+    <img class="capibaya" src="assets/capibaya-wave.png" alt="Capibaya melambai">
+    <h1 class="title">Halo, {{NAMA}}!</h1>
+    <p class="subtitle">Ada kejutan kecil buat kamu hari ini...</p>
+    <button class="btn-next" data-next>Lanjut →</button>
+  </section>
+
+  <!-- SCENE 3: Party -->
+  <section class="scene scene-party" data-scene="3">
+    <img class="capibaya bounce" src="assets/capibaya-party.png" alt="Capibaya merayakan ulang tahun">
+    <h1 class="title">Selamat Ulang Tahun!</h1>
+    <p class="date-badge">{{TANGGAL}}</p>
+    <button class="btn-next" data-next>Baca pesannya →</button>
+  </section>
+
+  <!-- SCENE 4: Letter -->
+  <section class="scene scene-letter" data-scene="4">
+    <img class="capibaya" src="assets/capibaya-sit.png" alt="Capibaya membaca surat">
+    <div class="letter-card">
+      <p class="letter-text">{{PESAN}}</p>
+    </div>
+    <button class="btn-next" data-next>Selanjutnya →</button>
+  </section>
+
+  <!-- SCENE 5: Closing -->
+  <section class="scene scene-closing" data-scene="5">
+    <img class="capibaya bounce" src="assets/capibaya-jump.png" alt="Capibaya melompat senang">
+    <h1 class="title">Semoga harimu secerah senyummu 🎉</h1>
+    <p class="signature">dibuat khusus untuk {{NAMA}}, dengan Karyana</p>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

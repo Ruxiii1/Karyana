@@ -1,0 +1,131 @@
+:root {
+  --cream: #FFF6EA;
+  --brown: #C68B59;
+  --brown-deep: #4A3428;
+  --pink: #FF8FA8;
+  --yellow: #FFD666;
+  --sky: #7EC8E3;
+  --paper: #FFFDF8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(180deg, #FFF6EA 0%, #FFEBD9 100%);
+  color: var(--brown-deep);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.sky { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.star {
+  position: absolute; font-size: 1.2rem; color: var(--yellow);
+  opacity: 0.6; animation: twinkle 3s ease-in-out infinite;
+}
+.s1 { top: 8%; left: 12%; animation-delay: 0s; }
+.s2 { top: 18%; left: 80%; animation-delay: .5s; color: var(--pink); }
+.s3 { top: 60%; left: 6%; animation-delay: 1s; color: var(--sky); }
+.s4 { top: 75%; left: 88%; animation-delay: 1.5s; }
+.s5 { top: 40%; left: 92%; animation-delay: 2s; color: var(--pink); }
+.s6 { top: 85%; left: 20%; animation-delay: 2.5s; color: var(--sky); }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 0.9; transform: scale(1.1); }
+}
+
+.stage {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem 1.25rem;
+}
+
+.scene {
+  display: none;
+  flex-direction: column; align-items: center; text-align: center;
+  max-width: 420px; width: 100%;
+  animation: fadeUp .5s ease;
+}
+.scene.active { display: flex; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Envelope */
+.envelope {
+  width: 240px; height: 168px; position: relative; cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+.envelope-back {
+  position: absolute; inset: 0; background: var(--brown);
+  border-radius: 10px; border: 3px solid var(--brown-deep);
+}
+.envelope-letter {
+  position: absolute; left: 12px; right: 12px; top: -18px;
+  height: 130px; background: var(--paper);
+  border: 3px solid var(--brown-deep); border-radius: 6px;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 14px; transition: transform .5s ease;
+  z-index: 1;
+}
+.letter-peek { font-family: 'Baloo 2', sans-serif; font-weight: 700; color: var(--brown-deep); font-size: .95rem; }
+.envelope-flap {
+  position: absolute; top: -3px; left: -3px; right: -3px;
+  height: 84px; background: var(--brown);
+  border: 3px solid var(--brown-deep);
+  clip-path: polygon(0 0, 50% 85%, 100% 0);
+  z-index: 2; transform-origin: top; transition: transform .5s ease;
+}
+.envelope.open .envelope-flap { transform: rotateX(180deg); }
+.envelope.open .envelope-letter { transform: translateY(-70px); }
+.tap-hint { font-weight: 600; opacity: .7; animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+
+/* Character */
+.capibaya { width: 190px; height: auto; margin-bottom: 1rem; }
+.bounce { animation: bounce 2s ease-in-out infinite; }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+.title {
+  font-family: 'Baloo 2', sans-serif; font-weight: 800;
+  font-size: 1.75rem; color: var(--brown-deep); margin-bottom: .5rem;
+  line-height: 1.25;
+}
+.subtitle { font-size: 1.05rem; opacity: .8; margin-bottom: 1.5rem; }
+
+.date-badge {
+  background: var(--pink); color: white; font-weight: 700;
+  padding: .5rem 1.25rem; border-radius: 999px; margin: .5rem 0 1.5rem;
+  font-size: 1rem; box-shadow: 0 4px 0 rgba(0,0,0,.08);
+}
+
+.letter-card {
+  background: var(--paper); border: 3px solid var(--brown);
+  border-radius: 16px; padding: 1.5rem; margin: .5rem 0 1.5rem;
+  box-shadow: 0 6px 0 rgba(198,139,89,.25);
+}
+.letter-text {
+  font-size: 1.05rem; line-height: 1.6; color: var(--brown-deep);
+  white-space: pre-wrap;
+}
+
+.signature { margin-top: 1rem; font-size: .9rem; opacity: .6; font-style: italic; }
+
+.btn-next {
+  font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 1rem;
+  background: var(--brown); color: white; border: none;
+  padding: .8rem 1.75rem; border-radius: 999px; cursor: pointer;
+  box-shadow: 0 4px 0 var(--brown-deep);
+  transition: transform .15s ease;
+}
+.btn-next:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--brown-deep); }
+
+@media (max-width: 380px) {
+  .title { font-size: 1.5rem; }
+  .capibaya { width: 160px; }
+}
